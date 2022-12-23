@@ -1,3 +1,81 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100vw;
+}
+
 h1 {
-    color: red;
+    color: salmon;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+    background-color: lightgray;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.fa-check-to-slot {
+   font-size: 2rem;
+   color: salmon
+}
+
+.add-project {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(66, 115, 66);
+    color: white;
+    height: 2rem;
+    width: 10rem;
+    border-radius: 1rem;
+}
+
+.content {
+    display: flex;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.left-content, .right-content {
+    padding: 1rem 1rem;
+}
+
+h2 {
+    padding: 0;
+}
+
+.left-content {
+    background-color: gray;
+    height: 100%;
+    width: 20%;
+}
+
+.top-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.add-task {
+    font-size: 1.5rem;
+}
+
+footer {
+    background-color: black;
+    color:white;
 }
