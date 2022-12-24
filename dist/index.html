@@ -11,22 +11,57 @@
 <body>
     <header>
         <div class="logo">
-            <i class="fa-solid fa-check-to-slot"></i>
-            <h1>To-Do List 2k22</h1>
+            <h1><i class="fa-solid fa-check-to-slot to-do-logo"></i>To-Do List 2k22</h1>
         </div>
-        <div class="add-project">Add Project</div>
+        <!-- <div class="add-project">Add Project</div> -->
     </header>
     <div class="content">
         <div class="left-content">
-            <h2>PROJECTS</h2>
+            <h2>PROJECTS<i class="fa-regular fa-square-plus add-project"></i></h2>
+            <ul class="project-list">
+                <h3 class="all-projects">All</h3>
+                <li class="project-item">New Project</li>
+            </ul>
         </div>
         <div class="right-content">
             <div class="top-row">
-                <h2>TASKS</h2>
-                <i class="fa-regular fa-square-plus add-task"></i>
+                <h2>TASKS<i class="fa-regular fa-square-plus add-task"></i></h2>
             </div>
             <div class="task-list">
-                
+                <div class="task-item">
+                    <h3 class="task-title">New Task Name</h3>
+                    <p class="task-desc">Task description with slightly more detail.</p>
+                    <div class="due-date-container">
+                        <label for="due-date">Due Date: </label>
+                        <input type="date" name="due-date" id="due-date">
+                    </div>
+                    <div class="priority-container">
+                        <label for="priorty">Priority: </label>
+                            <select name="priority" id="task-priority" autocomplete="off">
+                                <option value="4">4 - Urgent</option>
+                                <option value="3">3 - High</option>
+                                <option value="2" selected>2 - Normal</option>
+                                <option value="1">1 - Low</option>
+                            </select>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <h3 class="task-title">New Task Name</h3>
+                    <p class="task-desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim sint corrupti, aperiam et nobis fugit odio repellat blanditiis ipsa magni? Deleniti voluptatum facilis quo porro.</p>
+                    <div class="due-date-container">
+                        <label for="due-date">Due Date: </label>
+                        <input type="date" name="due-date" id="due-date">
+                    </div>
+                    <div class="priority-container">
+                        <label for="priorty">Priority: </label>
+                            <select name="priority" id="task-priority" autocomplete="off">
+                                <option value="4">4 - Urgent</option>
+                                <option value="3">3 - High</option>
+                                <option value="2" selected>2 - Normal</option>
+                                <option value="1">1 - Low</option>
+                            </select>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
