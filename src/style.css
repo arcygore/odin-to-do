@@ -41,8 +41,6 @@ header {
    color: aquamarine;
 }
 
-.add-project {
-}
 
 .content {
     display: flex;
@@ -126,4 +124,12 @@ footer {
     color: lightgray;
     line-height: 2rem;    
     /* margin-top: 2rem; */
+}
+
+.modal-container {
+    position: absolute;
+    z-index: 5000;
+    width: 20vw;
+    height: 20vh;
+    background-color: white;
 }

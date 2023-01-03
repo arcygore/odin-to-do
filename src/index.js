@@ -1,5 +1,4 @@
 import "./style.css";
-import addTask from "./task.js";
+import addTask from "./eventHandlers.js"
 
 console.log("Hello Console")
-addTask();
