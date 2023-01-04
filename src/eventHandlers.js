@@ -1,12 +1,20 @@
-import newTask from "./task.js";
+import addTask from "./task.js";
+import { removeModalPopup } from "./domManipulation.js";
 
-const addTask = document.querySelector(".add-task");
+const clicks = () => {
 
+    document.addEventListener("click", (e) => {
+        const { target } = e;
+        console.log(target)
 
-const addTaskClick = () => {
-    newTask();
-}
+        if (target.classList.contains("add-task")) {
+            addTask();
+        } 
+        else if (target.classList.contains("modal-overlay")) {
+            removeModalPopup();
+        }
+        })
+    return;
+};
 
-addTask.addEventListener('click', addTaskClick);
-
-export { addTaskClick, addTask };
+export { clicks };

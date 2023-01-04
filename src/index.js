@@ -1,4 +1,5 @@
 import "./style.css";
-import addTask from "./eventHandlers.js"
+import {clicks} from "./eventHandlers.js"
 
-console.log("Hello Console")
+console.log("Hello Console");
+clicks();

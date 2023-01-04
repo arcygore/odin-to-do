@@ -10,6 +10,10 @@ html, body {
     font-family: sans-serif;
 }
 
+body {
+    z-index: 100;
+}
+
 h1 {
     color: rgb(40, 40, 40);
     padding: 0;
@@ -126,10 +130,25 @@ footer {
     /* margin-top: 2rem; */
 }
 
+.modal-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 4999;
+}
+
+
 .modal-container {
     position: absolute;
     z-index: 5000;
-    width: 20vw;
-    height: 20vh;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
     background-color: white;
+    width: 15rem;
+    height: 15rem;
 }
