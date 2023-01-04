@@ -126,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"clicks\": () => (/* binding */ clicks)\n/* harmony export */ });\n/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task.js */ \"./src/task.js\");\n/* harmony import */ var _domManipulation_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./domManipulation.js */ \"./src/domManipulation.js\");\n\n\n\nconst clicks = () => {\n\n    document.addEventListener(\"click\", (e) => {\n        const { target } = e;\n        console.log(target)\n\n        if (target.classList.contains(\"add-task\")) {\n            (0,_task_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n        } \n        else if (target.classList.contains(\"modal-overlay\")) {\n            (0,_domManipulation_js__WEBPACK_IMPORTED_MODULE_1__.removeModalPopup)();\n        }\n        })\n    return;\n};\n\n\n\n//# sourceURL=webpack://to-do-list/./src/eventHandlers.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"clicks\": () => (/* binding */ clicks)\n/* harmony export */ });\n/* harmony import */ var _task_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task.js */ \"./src/task.js\");\n/* harmony import */ var _project_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./project.js */ \"./src/project.js\");\n/* harmony import */ var _domManipulation_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./domManipulation.js */ \"./src/domManipulation.js\");\n\n\n\n\nconst clicks = () => {\n\n    document.addEventListener(\"click\", (e) => {\n        const { target } = e;\n        console.log(target)\n\n        if (target.classList.contains(\"add-task\")) {\n            (0,_task_js__WEBPACK_IMPORTED_MODULE_0__[\"default\"])();\n        } \n        else if (target.classList.contains(\"add-project\")) {\n            (0,_project_js__WEBPACK_IMPORTED_MODULE_1__[\"default\"])();\n        }\n        else if (target.classList.contains(\"modal-overlay\")) {\n            (0,_domManipulation_js__WEBPACK_IMPORTED_MODULE_2__.removeModalPopup)();\n        }\n        })\n    return;\n};\n\n\n\n//# sourceURL=webpack://to-do-list/./src/eventHandlers.js?");
 
 /***/ }),
 
@@ -137,6 +137,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./style.css */ \"./src/style.css\");\n/* harmony import */ var _eventHandlers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./eventHandlers.js */ \"./src/eventHandlers.js\");\n\n\n\nconsole.log(\"Hello Console\");\n(0,_eventHandlers_js__WEBPACK_IMPORTED_MODULE_1__.clicks)();\n\n//# sourceURL=webpack://to-do-list/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/project.js":
+/*!************************!*\
+  !*** ./src/project.js ***!
+  \************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ addProject)\n/* harmony export */ });\n/* harmony import */ var _domManipulation_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./domManipulation.js */ \"./src/domManipulation.js\");\n\n\nfunction addProject() {\n    (0,_domManipulation_js__WEBPACK_IMPORTED_MODULE_0__.createModalPopup)();\n    console.log(\"New Project Clicked\");\n};\n\n\n//# sourceURL=webpack://to-do-list/./src/project.js?");
 
 /***/ }),
 
