@@ -1,6 +1,6 @@
 import addTask from "./task.js";
-import addProject from "./project.js";
-import { removeModalPopup } from "./domManipulation.js";
+import { addProjectPopup , submitProject } from "./project.js";
+import { removeModalPopup , createProjectForm } from "./domManipulation.js";
 
 const clicks = () => {
 
@@ -12,9 +12,15 @@ const clicks = () => {
             addTask();
         } 
         else if (target.classList.contains("add-project")) {
-            addProject();
+            addProjectPopup();
         }
         else if (target.classList.contains("modal-overlay")) {
+            removeModalPopup(); // Need to add submitting data function if it is project submit or task submit.
+        }
+        else if (target.classList.contains("project-submit")) {
+            const projectTitle = document.querySelector("#projectname");
+
+            submitProject(projectTitle.value);
             removeModalPopup();
         }
         })
