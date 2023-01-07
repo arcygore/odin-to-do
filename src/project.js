@@ -1,12 +1,20 @@
 import { createModalPopup, createProjectForm, addSubmittedProject } from "./domManipulation.js";
 
-const addProjectPopup = () => {
-    createModalPopup();
-    createProjectForm();
-};
-
-const submitProject = (title) => {
-    addSubmittedProject(title);
+class Project {
+    constructor(title) {
+        this.title = title;
+    }
 }
 
-export { addProjectPopup , submitProject};
+export { Project };
+
+// const addProjectPopup = () => {
+//     createModalPopup();
+//     createProjectForm();
+// };
+
+// const submitProject = (title) => {
+//     addSubmittedProject(title);
+// }
+
+// export { addProjectPopup , submitProject};

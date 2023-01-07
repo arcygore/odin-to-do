@@ -3,8 +3,6 @@ import {newProjectList,  newTaskList} from "./index.js";
 
 const body = document.querySelector("body");
 
-
-
 export const createModalPopup = () => {
     const modalContainer = document.createElement("div");
     const modalOverlay = document.createElement("div");
@@ -28,6 +26,7 @@ export const createProjectForm = () => {
     newProjectName.setAttribute('input','text');
     newProjectName.setAttribute('id', 'project-name');
     newProjectSubmit.innerText = "Add Project";
+    newProjectSubmit.setAttribute('type', 'submit');
     newProjectSubmit.classList.add("project-submit");
 
     addProjectForm.appendChild(newProjectLabel);
@@ -36,6 +35,7 @@ export const createProjectForm = () => {
     modalContainer.appendChild(addProjectForm);
     newProjectName.focus();
 }
+
 
 export const createTaskForm = () => {
     const modalContainer = document.querySelector(".modal-container");
@@ -96,6 +96,7 @@ export const createTaskForm = () => {
         newTaskPriorityInput.appendChild(newTaskPriorityOption);
     }
     newTaskSubmit.innerText = "Add Task"; 
+    newTaskSubmit.setAttribute('type','submit');
     newTaskSubmit.classList.add("task-submit"); 
 
     addTaskForm.appendChild(newTaskNameLabel);
@@ -183,7 +184,7 @@ export const addSubmittedTask = (title, project, description, date, priority) =>
         } else if (newTaskPriorityOption.value == "4") {
             newTaskPriorityOption.innerText = "4 - Urgent";
         }
-        if (priority.value == newTaskPriorityOption.value) {
+        if (newTaskPriorityOption.value === priority.value) {
             newTaskPriorityOption.selected = 'selected';
         }
         newTaskPrioritySelect.appendChild(newTaskPriorityOption);
@@ -198,4 +199,7 @@ export const addSubmittedTask = (title, project, description, date, priority) =>
     newTaskItem.appendChild(newTaskDueContainer);
     newTaskItem.appendChild(newTaskPriorityContainer);
     taskList.appendChild(newTaskItem);
+
+
+    return newTaskList;
 }

@@ -1,40 +1,55 @@
-import { addTaskPopup , submitTask } from "./task.js";
-import { addProjectPopup , submitProject } from "./project.js";
-import { removeModalPopup , createProjectForm } from "./domManipulation.js";
+import { Task, taskList } from "./task.js";
+import { Project } from "./project.js";
+import { removeModalPopup , createProjectForm, addSubmittedTask, addSubmittedProject, createModalPopup, createTaskForm } from "./domManipulation.js";
 
 const listenForClicks = () => {
 
     document.addEventListener("click", (e) => {
         const { target } = e;
-        console.log(target)
 
         if (target.classList.contains("add-task")) {
-            addTaskPopup();
+            createModalPopup();
+            createTaskForm();
         } 
         else if (target.classList.contains("add-project")) {
-            addProjectPopup();
+            createModalPopup();
+            createProjectForm();
         }
         else if (target.classList.contains("modal-overlay")) {
             removeModalPopup(); // Need to add submitting data function if it is project submit or task submit.
         }
-        else if (target.classList.contains("project-submit")) {
-            const projectTitle = document.querySelector("#project-name");
-
-            submitProject(projectTitle.value);
-            removeModalPopup();
-        }
         else if (target.classList.contains("task-submit")) {
-            const taskTitle = document.querySelector("#task-name");
-            const taskProject = document.querySelector("#task-project");
-            const taskDescription = document.querySelector("#task-desc")
-            const taskDueDate = document.querySelector("#due-date");
-            const taskPriority = document.querySelector("#task-priority");
+            const taskTitle = document.querySelector("#task-name").value;
+            const taskProject = document.querySelector("#task-project").value;
+            const taskDescription = document.querySelector("#task-desc").value;
+            const taskDueDate = document.querySelector("#due-date").value;
+            const taskPriority = document.querySelector("#task-priority").value;
 
-            console.log(taskTitle.value);
+            let task = new Task(taskTitle, taskProject, taskDescription, taskDueDate, taskPriority);
 
-            submitTask(taskTitle.value, taskProject.value, taskDescription.value, taskDueDate.value, taskPriority.value);
+            taskList.push(task);
+            
+            console.log(task)
+            addSubmittedTask(task.title, task.project, task.description, task.date, task.priority);
             removeModalPopup();
         }
+        // else if (target.classList.contains("project-submit")) {
+        //     const projectTitle = document.querySelector("#project-name");
+        //     addSubmittedProject(projectTitle.value);
+        //     removeModalPopup();
+        // }
+        // else if (target.classList.contains("task-submit")) {
+        //     const taskTitle = document.querySelector("#task-name");
+        //     const taskProject = document.querySelector("#task-project");
+        //     const taskDescription = document.querySelector("#task-desc")
+        //     const taskDueDate = document.querySelector("#due-date");
+        //     const taskPriority = document.querySelector("#task-priority");
+
+        //     console.log(taskPriority.value);
+
+        //     submitTask(taskTitle.value, taskProject.value, taskDescription.value, taskDueDate.value, taskPriority.value);
+        //     removeModalPopup();
+        // }
         })
     return;
 };
