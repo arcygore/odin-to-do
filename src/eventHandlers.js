@@ -19,17 +19,16 @@ const listenForClicks = () => {
             removeModalPopup(); // Need to add submitting data function if it is project submit or task submit.
         }
         else if (target.classList.contains("task-submit")) {
-            const taskTitle = document.querySelector("#task-name").value;
-            const taskProject = document.querySelector("#task-project").value;
-            const taskDescription = document.querySelector("#task-desc").value;
-            const taskDueDate = document.querySelector("#due-date").value;
-            const taskPriority = document.querySelector("#task-priority").value;
+            const taskTitle = document.querySelector("#new-task-name").value;
+            const taskProject = document.querySelector("#new-task-project").value;
+            const taskDescription = document.querySelector("#new-task-desc").value;
+            const taskDueDate = document.querySelector("#new-task-date").value;
+            const taskPriority = document.querySelector("#new-task-priority").value;
 
             let task = new Task(taskTitle, taskProject, taskDescription, taskDueDate, taskPriority);
 
             taskList.push(task);
             
-            console.log(task)
             addSubmittedTask(task.title, task.project, task.description, task.date, task.priority);
             removeModalPopup();
         }

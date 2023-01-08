@@ -52,14 +52,14 @@ export const createTaskForm = () => {
     const newTaskPriorityInput = document.createElement("select");
     const newTaskSubmit = document.createElement("button");
 
-    newTaskNameLabel.setAttribute('for', 'task-name');
+    newTaskNameLabel.setAttribute('for', 'new-task-name');
     newTaskNameLabel.innerText = "Task Name: ";
     newTaskNameInput.setAttribute('input','text');
-    newTaskNameInput.setAttribute('id','task-name');
-    newTaskProjectLabel.setAttribute('for', 'task-project');
+    newTaskNameInput.setAttribute('id','new-task-name');
+    newTaskProjectLabel.setAttribute('for', 'new-task-project');
     newTaskProjectLabel.innerText = "Project: ";
     newTaskProjectInput.setAttribute('input', 'select');
-    newTaskProjectInput.setAttribute('id','task-project');
+    newTaskProjectInput.setAttribute('id','new-task-project');
         for (let i = 0; i < newProjectList.length; i++) {
             const projectSelectionValue = newProjectList[i];
             const newProjectSelector = document.createElement("option");
@@ -67,19 +67,19 @@ export const createTaskForm = () => {
             newProjectSelector.value = projectSelectionValue;
             newTaskProjectInput.appendChild(newProjectSelector);
         }
-    newTaskDescriptionLabel.setAttribute('for', 'task-desc');
+    newTaskDescriptionLabel.setAttribute('for', 'new-task-desc');
     newTaskDescriptionLabel.innerText = "Description: ";
     newTaskDescriptionInput.setAttribute('input', 'text');
-    newTaskDescriptionInput.setAttribute('id', 'task-desc')
-    newTaskDateLabel.setAttribute('for', 'task-date');
+    newTaskDescriptionInput.setAttribute('id', 'new-task-desc')
+    newTaskDateLabel.setAttribute('for', 'new-task-date');
     newTaskDateLabel.innerText = "Due Date: ";
     newTaskDateInput.setAttribute('type', 'date');
-    newTaskDateInput.setAttribute('id', 'due-date')
+    newTaskDateInput.setAttribute('id', 'new-task-date')
     newTaskDateInput.setAttribute('name', 'due-date')
-    newTaskPriorityLabel.setAttribute('for', 'task-priority');
+    newTaskPriorityLabel.setAttribute('for', 'new-task-priority');
     newTaskPriorityLabel.innerText = "Priority: ";
     newTaskPriorityInput.setAttribute('input','select');
-    newTaskPriorityInput.setAttribute('id','task-priority');
+    newTaskPriorityInput.setAttribute('id','new-task-priority');
     for (let i = 1; i < 5; i++) {
         const newTaskPriorityOption = document.createElement("option");
         newTaskPriorityOption.value = i;
@@ -101,10 +101,10 @@ export const createTaskForm = () => {
 
     addTaskForm.appendChild(newTaskNameLabel);
     addTaskForm.appendChild(newTaskNameInput);
-    addTaskForm.appendChild(newTaskDescriptionLabel);
-    addTaskForm.appendChild(newTaskDescriptionInput);
     addTaskForm.appendChild(newTaskProjectLabel);
     addTaskForm.appendChild(newTaskProjectInput);
+    addTaskForm.appendChild(newTaskDescriptionLabel);
+    addTaskForm.appendChild(newTaskDescriptionInput);
     addTaskForm.appendChild(newTaskDateLabel);
     addTaskForm.appendChild(newTaskDateInput);
     addTaskForm.appendChild(newTaskPriorityLabel);
@@ -141,9 +141,9 @@ export const addSubmittedTask = (title, project, description, date, priority) =>
     const newTaskItem = document.createElement("div");
     const newTaskTitle = document.createElement("h3");
     const newTaskDesc = document.createElement("p");
-    const newTaskDueContainer = document.createElement("div");
-    const newTaskDueLabel = document.createElement("label");
-    const newTaskDueInput = document.createElement("input");
+    let newTaskDueContainer = document.createElement("div");
+    let newTaskDueLabel = document.createElement("label");
+    let newTaskDueInput = document.createElement("input");
     const newTaskPriorityContainer = document.createElement("div");
     const newTaskPriorityLabel = document.createElement("label");
     const newTaskPrioritySelect = document.createElement("select");
@@ -172,19 +172,22 @@ export const addSubmittedTask = (title, project, description, date, priority) =>
     newTaskPrioritySelect.setAttribute('name', 'task-priority');
     newTaskPrioritySelect.setAttribute('id', 'task-priority');
 
+
+
     for (let i = 1; i < 5; i++) {
         const newTaskPriorityOption = document.createElement("option");
         newTaskPriorityOption.value = i;
-        if (newTaskPriorityOption.value == "1") {
+        if (newTaskPriorityOption.value == 1) {
             newTaskPriorityOption.innerText = "1 - Low";
-        } else if (newTaskPriorityOption.value == "2") {
+        } else if (newTaskPriorityOption.value == 2) {
             newTaskPriorityOption.innerText = "2 - Normal";
-        } else if (newTaskPriorityOption.value == "3") {
+        } else if (newTaskPriorityOption.value == 3) {
             newTaskPriorityOption.innerText = "3 - High";
-        } else if (newTaskPriorityOption.value == "4") {
+        } else if (newTaskPriorityOption.value == 4) {
             newTaskPriorityOption.innerText = "4 - Urgent";
         }
-        if (newTaskPriorityOption.value === priority.value) {
+        if (newTaskPriorityOption.value == priority) {
+            console.log(newTaskPriorityOption.value)
             newTaskPriorityOption.selected = 'selected';
         }
         newTaskPrioritySelect.appendChild(newTaskPriorityOption);
