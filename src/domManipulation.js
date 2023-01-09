@@ -16,6 +16,7 @@ export const createModalPopup = () => {
 
 export const createProjectForm = () => {
     const modalContainer = document.querySelector(".modal-container");
+
     const addProjectForm = document.createElement("div");
     const newProjectLabel = document.createElement("label");
     const newProjectName = document.createElement("input");
@@ -159,20 +160,26 @@ export const addSubmittedTask = (title, project, description, date, priority) =>
     newTaskDueContainer.classList.add("due-date-container");
 
     newTaskDueLabel.setAttribute('for', 'due-date');
+    newTaskDueLabel.innerText = 'Due Date: ';
 
     newTaskDueInput.setAttribute('type', 'date');
     newTaskDueInput.setAttribute('name', 'due-date');
     newTaskDueInput.setAttribute('id', 'due-date');
     newTaskDueInput.value = date;
 
+    newTaskDueContainer.appendChild(newTaskDueLabel);
+    newTaskDueContainer.appendChild(newTaskDueInput);
+
     newTaskPriorityContainer.classList.add("priority-container");
 
     newTaskPriorityLabel.setAttribute('for', 'task-priority');
+    newTaskPriorityLabel.innerText = 'Priority: '
 
     newTaskPrioritySelect.setAttribute('name', 'task-priority');
     newTaskPrioritySelect.setAttribute('id', 'task-priority');
 
-
+    newTaskPriorityContainer.appendChild(newTaskPriorityLabel);
+    newTaskPriorityContainer.appendChild(newTaskPrioritySelect);
 
     for (let i = 1; i < 5; i++) {
         const newTaskPriorityOption = document.createElement("option");

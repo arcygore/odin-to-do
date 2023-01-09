@@ -29,6 +29,7 @@ const listenForClicks = () => {
 
             taskList.push(task);
             
+            console.log(taskList)
             addSubmittedTask(task.title, task.project, task.description, task.date, task.priority);
             removeModalPopup();
         }
