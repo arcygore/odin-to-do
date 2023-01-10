@@ -200,11 +200,19 @@ export const addSubmittedTask = (title, project, description, date, priority) =>
         newTaskPrioritySelect.appendChild(newTaskPriorityOption);
     }
 
+    const taskTopRow = document.createElement("div");
+    taskTopRow.classList.add("task-top-row")
+
+    const trashCan = document.createElement("div");
+    trashCan.innerHTML = '<i class="fa-regular fa-trash-can task-delete"></i>';
+
     newTaskDueContainer.appendChild(newTaskDueLabel);
     newTaskDueContainer.appendChild(newTaskDueInput);
     newTaskPriorityContainer.appendChild(newTaskPriorityLabel);
     newTaskPriorityContainer.appendChild(newTaskPrioritySelect);
-    newTaskItem.appendChild(newTaskTitle);
+    taskTopRow.appendChild(newTaskTitle);
+    taskTopRow.appendChild(trashCan);
+    newTaskItem.appendChild(taskTopRow);
     newTaskItem.appendChild(newTaskDesc);
     newTaskItem.appendChild(newTaskDueContainer);
     newTaskItem.appendChild(newTaskPriorityContainer);

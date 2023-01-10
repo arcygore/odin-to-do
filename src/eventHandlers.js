@@ -27,30 +27,25 @@ const listenForClicks = () => {
 
             let task = new Task(taskTitle, taskProject, taskDescription, taskDueDate, taskPriority);
 
-            taskList.push(task);
-            
-            console.log(taskList)
-            addSubmittedTask(task.title, task.project, task.description, task.date, task.priority);
-            removeModalPopup();
+            if (task.title /*&& task.project */ && task.description && task.date && task.priority) {
+                taskList.push(task);
+                addSubmittedTask(task.title, task.project, task.description, task.date, task.priority);
+                removeModalPopup();
+            }
         }
-        // else if (target.classList.contains("project-submit")) {
-        //     const projectTitle = document.querySelector("#project-name");
-        //     addSubmittedProject(projectTitle.value);
-        //     removeModalPopup();
-        // }
-        // else if (target.classList.contains("task-submit")) {
-        //     const taskTitle = document.querySelector("#task-name");
-        //     const taskProject = document.querySelector("#task-project");
-        //     const taskDescription = document.querySelector("#task-desc")
-        //     const taskDueDate = document.querySelector("#due-date");
-        //     const taskPriority = document.querySelector("#task-priority");
-
-        //     console.log(taskPriority.value);
-
-        //     submitTask(taskTitle.value, taskProject.value, taskDescription.value, taskDueDate.value, taskPriority.value);
-        //     removeModalPopup();
-        // }
-        })
+        else if (target.classList.contains("task-delete")) {
+            const taskTitleForDeletion = target.parentElement.parentElement.children[0].innerText;
+            console.log(taskTitleForDeletion);
+            function seeMatchingTitles(element) {
+                if (element.title == taskTitleForDeletion) {
+                    return true;
+                }
+            }
+            let taskListDeleteIndex = taskList.findIndex(seeMatchingTitles)
+            taskList.splice(taskListDeleteIndex, 1);
+            console.log(taskList);
+        }
+    })
     return;
 };
 
