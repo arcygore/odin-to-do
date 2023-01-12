@@ -200,15 +200,16 @@ export const addSubmittedTask = (title, project, description, date, priority) =>
     const taskTopRow = document.createElement("div");
     taskTopRow.classList.add("task-top-row")
 
-    const trashCan = document.createElement("div");
-    trashCan.innerHTML = '<i class="fa-regular fa-trash-can task-delete"></i>';
+    const icons = document.createElement("div");
+    icons.classList.add("task-icons");
+    icons.innerHTML = '<i class="fa-solid fa-pencil task-edit"></i><i class="fa-regular fa-trash-can task-delete"></i>';
 
     newTaskDueContainer.appendChild(newTaskDueLabel);
     newTaskDueContainer.appendChild(newTaskDueInput);
     newTaskPriorityContainer.appendChild(newTaskPriorityLabel);
     newTaskPriorityContainer.appendChild(newTaskPrioritySelect);
     taskTopRow.appendChild(newTaskTitle);
-    taskTopRow.appendChild(trashCan);
+    taskTopRow.appendChild(icons);
     newTaskItem.appendChild(taskTopRow);
     newTaskItem.appendChild(newTaskDesc);
     newTaskItem.appendChild(newTaskDueContainer);

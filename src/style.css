@@ -125,6 +125,11 @@ h3 {
     justify-content: space-between;
 }
 
+.task-icons {
+    display: flex;
+    gap: 1rem;
+}
+
 .task-item > * {
     margin: 0.5rem;
 }
@@ -165,4 +170,8 @@ footer {
     background-color: white;
     width: 15rem;
     height: 15rem;
+}
+
+.completed-task {
+    text-decoration: line-through;
 }

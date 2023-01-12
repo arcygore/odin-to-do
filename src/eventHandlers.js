@@ -61,6 +61,16 @@ const listenForClicks = () => {
             reloadAllTasks();
         }
     })
+    document.addEventListener("dblclick", (e) => {
+        const {target} = e;
+        if (target.classList.contains("task-title")) {
+            const completedWord = document.createElement("span");
+            completedWord.innerText = "Completed!"
+            target.appendChild(completedWord);
+            const completedTaskCard = target.parentElement.parentElement;
+            completedTaskCard.classList.add("completed-task");
+        }
+    })
     return;
 };
 
