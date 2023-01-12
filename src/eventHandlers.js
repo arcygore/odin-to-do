@@ -1,7 +1,7 @@
 import { Task, taskList, indexOfEdit, setIndex } from "./task.js";
 import { Project , projectList } from "./project.js";
 import { removeModalPopup , createProjectForm, addSubmittedTask, addSubmittedProject, createModalPopup, createTaskForm, filterTasksByProject, reloadAllTasks, createEditedTaskForm, addEditedTask } from "./domManipulation.js";
-import { newProjectList } from "./index.js";
+import { myTasksJSON , myProjectsJSON , setTasksJSON , setProjectsJSON } from "./localStorageHandling.js";
 
 const listenForClicks = () => {
 
@@ -25,6 +25,9 @@ const listenForClicks = () => {
             let project = new Project(projectTitle);
 
             projectList.push(project);
+            if (projectList) {
+                setProjectsJSON(projectList);
+            }
             addSubmittedProject(project.title);
             removeModalPopup();
         }
@@ -39,6 +42,9 @@ const listenForClicks = () => {
 
             // if (task.title /*&& task.project */ && task.description && task.date && task.priority) {
                 taskList.push(task);
+                if (taskList) {
+                    setTasksJSON(taskList);
+                }
                 addSubmittedTask(task.title, task.project, task.description, task.date, task.priority);
                 removeModalPopup();
             //}
@@ -51,6 +57,7 @@ const listenForClicks = () => {
             let taskListDeleteIndex = taskList.findIndex(seeMatchingTitles)
             taskList.splice(taskListDeleteIndex, 1);
             target.parentElement.parentElement.parentElement.remove();
+            setTasksJSON(taskList);
         }
         else if (target.classList.contains("task-edit")) {
             const editableCard = target.parentElement.parentElement.parentElement;
@@ -72,6 +79,9 @@ const listenForClicks = () => {
 
             addEditedTask(task.title, task.project, task.description, task.date, task.priority);
             taskList[indexOfEdit] = task;
+
+            setTasksJSON(taskList);
+
             removeModalPopup();
         }
 

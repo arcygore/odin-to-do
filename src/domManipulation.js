@@ -442,9 +442,28 @@ export function filterTasksByProject(arr) {
 export function reloadAllTasks() {
     const tasksOnPage = document.querySelectorAll(".task-item");
 
-    tasksOnPage.forEach((e) => e.remove());
+    if (tasksOnPage) {
+        tasksOnPage.forEach((e) => e.remove());
+    }
 
     taskList.forEach((element) => {
-        addSubmittedTask(element.title, element.project, element.description, element.date, element.priority)
+        if (element) {
+            addSubmittedTask(element.title, element.project, element.description, element.date, element.priority)
+        }
+        
+    })
+}
+
+export function reloadAllProjects() {
+    const projectsOnPage = document.querySelectorAll(".project-item")
+
+    if (projectsOnPage) {
+        projectsOnPage.forEach((e) => e.remove());
+    }
+
+    projectList.forEach((element) => {
+        if (element) {
+            addSubmittedProject(element.title);
+        }
     })
 }
