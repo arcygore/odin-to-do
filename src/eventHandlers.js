@@ -1,6 +1,7 @@
 import { Task, taskList } from "./task.js";
-import { Project } from "./project.js";
-import { removeModalPopup , createProjectForm, addSubmittedTask, addSubmittedProject, createModalPopup, createTaskForm } from "./domManipulation.js";
+import { Project , projectList } from "./project.js";
+import { removeModalPopup , createProjectForm, addSubmittedTask, addSubmittedProject, createModalPopup, createTaskForm, filterTasksByProject } from "./domManipulation.js";
+import { newProjectList } from "./index.js";
 
 const listenForClicks = () => {
 
@@ -17,6 +18,15 @@ const listenForClicks = () => {
         }
         else if (target.classList.contains("modal-overlay")) {
             removeModalPopup(); // Need to add submitting data function if it is project submit or task submit.
+        }
+        else if (target.classList.contains("project-submit")) {
+            const projectTitle = document.querySelector("#new-project-name").value;
+
+            let project = new Project(projectTitle);
+
+            projectList.push(project);
+            addSubmittedProject(project.title);
+            removeModalPopup();
         }
         else if (target.classList.contains("task-submit")) {
             const taskTitle = document.querySelector("#new-task-name").value;
@@ -35,15 +45,18 @@ const listenForClicks = () => {
         }
         else if (target.classList.contains("task-delete")) {
             const taskTitleForDeletion = target.parentElement.parentElement.children[0].innerText;
-            console.log(taskTitleForDeletion);
             function seeMatchingTitles(element) {
-                if (element.title == taskTitleForDeletion) {
-                    return true;
-                }
+                if (element.title == taskTitleForDeletion) return true;
             }
             let taskListDeleteIndex = taskList.findIndex(seeMatchingTitles)
             taskList.splice(taskListDeleteIndex, 1);
-            console.log(taskList);
+            target.parentElement.parentElement.parentElement.remove();
+        }
+        else if (target.classList.contains("project-item")) {
+            const projectForFilter = target.innerText;
+            const tasksWithProject = taskList.filter((element) => element.project == projectForFilter);
+            console.log(tasksWithProject);
+            filterTasksByProject(tasksWithProject);
         }
     })
     return;

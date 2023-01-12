@@ -1,4 +1,5 @@
-import {newProjectList,  newTaskList} from "./index.js";
+import { taskList } from "./task.js";
+import { projectList } from "./project.js"
 
 
 const body = document.querySelector("body");
@@ -25,7 +26,7 @@ export const createProjectForm = () => {
     newProjectLabel.setAttribute('for', 'project-name');
     newProjectLabel.innerText = "Project Name";
     newProjectName.setAttribute('input','text');
-    newProjectName.setAttribute('id', 'project-name');
+    newProjectName.setAttribute('id', 'new-project-name');
     newProjectSubmit.innerText = "Add Project";
     newProjectSubmit.setAttribute('type', 'submit');
     newProjectSubmit.classList.add("project-submit");
@@ -61,8 +62,8 @@ export const createTaskForm = () => {
     newTaskProjectLabel.innerText = "Project: ";
     newTaskProjectInput.setAttribute('input', 'select');
     newTaskProjectInput.setAttribute('id','new-task-project');
-        for (let i = 0; i < newProjectList.length; i++) {
-            const projectSelectionValue = newProjectList[i];
+        for (let i = 0; i < projectList.length; i++) {
+            const projectSelectionValue = projectList[i].title;
             const newProjectSelector = document.createElement("option");
             newProjectSelector.innerText = projectSelectionValue;
             newProjectSelector.value = projectSelectionValue;
@@ -122,18 +123,15 @@ export const removeModalPopup = () => {
 }
 
 export const addSubmittedProject = (title) => {
-    const projectList = document.querySelector(".project-list");
+    const projectListContainer = document.querySelector(".project-list");
 
     const newProjectTitle = document.createElement("li");
     newProjectTitle.classList.add("project-item");
     newProjectTitle.innerText = title;
 
-    projectList.appendChild(newProjectTitle);
+    projectListContainer.appendChild(newProjectTitle);
 
-    newProjectList.push(title);
-    console.log(newProjectList);
-
-    return newProjectList;
+    return projectList;
 }
 
 export const addSubmittedTask = (title, project, description, date, priority) => {
@@ -194,7 +192,6 @@ export const addSubmittedTask = (title, project, description, date, priority) =>
             newTaskPriorityOption.innerText = "4 - Urgent";
         }
         if (newTaskPriorityOption.value == priority) {
-            console.log(newTaskPriorityOption.value)
             newTaskPriorityOption.selected = 'selected';
         }
         newTaskPrioritySelect.appendChild(newTaskPriorityOption);
@@ -219,5 +216,21 @@ export const addSubmittedTask = (title, project, description, date, priority) =>
     taskList.appendChild(newTaskItem);
 
 
-    return newTaskList;
+    return taskList;
+}
+
+export function filterTasksByProject(arr) {
+    let taskMatch = false;
+    const taskListToFilter = document.querySelectorAll(".task-item");
+    console.log(taskListToFilter);
+    taskListToFilter.forEach((e) => {
+        for (let i = 0; i < arr.length; i++) {
+            if (e.children[0].children[0].innerText == arr[i].title) {
+                taskMatch = true;
+            }
+        }
+        if (!taskMatch) {
+            e.remove();
+        }
+    })
 }

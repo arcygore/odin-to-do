@@ -1,4 +1,4 @@
-import { createModalPopup, createProjectForm, addSubmittedProject } from "./domManipulation.js";
+let projectList = [];
 
 class Project {
     constructor(title) {
@@ -6,7 +6,29 @@ class Project {
     }
 }
 
-export { Project };
+export { Project , projectList };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { createModalPopup, createProjectForm, addSubmittedProject } from "./domManipulation.js";
 
 // const addProjectPopup = () => {
 //     createModalPopup();
