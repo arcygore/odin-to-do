@@ -1,4 +1,5 @@
 let taskList = [];
+let indexOfEdit;
 
 class Task {
     constructor(title, project, description, date, priority) {
@@ -8,11 +9,14 @@ class Task {
         this.date = date;
         this.priority = priority;
     }
+
 }
 
-export { Task , taskList };
+function setIndex(value) {
+    indexOfEdit = value;
+}
 
-
+export { Task , taskList , indexOfEdit , setIndex };
 
 
 

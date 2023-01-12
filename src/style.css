@@ -65,6 +65,11 @@ h3 {
     padding: 0;
 }
 
+.task-project {
+    margin-top: 0 !important;
+    padding: 0;
+}
+
 .content {
     width: 100vw;
     display: flex;
