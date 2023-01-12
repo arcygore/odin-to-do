@@ -220,17 +220,42 @@ export const addSubmittedTask = (title, project, description, date, priority) =>
 }
 
 export function filterTasksByProject(arr) {
+    reloadAllTasks();
     let taskMatch = false;
+    let matchedTasks = [];
+    let taskExists = false;
     const taskListToFilter = document.querySelectorAll(".task-item");
-    console.log(taskListToFilter);
     taskListToFilter.forEach((e) => {
+        taskMatch = false;
+        taskExists = false;
         for (let i = 0; i < arr.length; i++) {
             if (e.children[0].children[0].innerText == arr[i].title) {
                 taskMatch = true;
+                // if (taskMatch) {
+                //     matchedTasks.forEach((task) => {
+                //         console.log(task);
+                //         if (e.children[0].children[0].innerText == task) {
+                //             taskExists = true;
+                //         }
+                //     if (taskExists) return console.log("Task already exists");
+                //     else matchedTasks.push(e.children[0].children[0].innerText); 
+                //     })
+                // }
             }
         }
-        if (!taskMatch) {
-            e.remove();
-        }
+        if (!taskMatch) e.remove();
+    })
+    return taskList;
+}
+
+// function to reload all task cards from taskList
+
+export function reloadAllTasks() {
+    const tasksOnPage = document.querySelectorAll(".task-item");
+
+    tasksOnPage.forEach((e) => e.remove());
+
+    taskList.forEach((element) => {
+        addSubmittedTask(element.title, element.project, element.description, element.date, element.priority)
     })
 }

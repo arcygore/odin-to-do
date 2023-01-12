@@ -1,6 +1,6 @@
 import { Task, taskList } from "./task.js";
 import { Project , projectList } from "./project.js";
-import { removeModalPopup , createProjectForm, addSubmittedTask, addSubmittedProject, createModalPopup, createTaskForm, filterTasksByProject } from "./domManipulation.js";
+import { removeModalPopup , createProjectForm, addSubmittedTask, addSubmittedProject, createModalPopup, createTaskForm, filterTasksByProject, reloadAllTasks } from "./domManipulation.js";
 import { newProjectList } from "./index.js";
 
 const listenForClicks = () => {
@@ -37,11 +37,11 @@ const listenForClicks = () => {
 
             let task = new Task(taskTitle, taskProject, taskDescription, taskDueDate, taskPriority);
 
-            if (task.title /*&& task.project */ && task.description && task.date && task.priority) {
+            // if (task.title /*&& task.project */ && task.description && task.date && task.priority) {
                 taskList.push(task);
                 addSubmittedTask(task.title, task.project, task.description, task.date, task.priority);
                 removeModalPopup();
-            }
+            //}
         }
         else if (target.classList.contains("task-delete")) {
             const taskTitleForDeletion = target.parentElement.parentElement.children[0].innerText;
@@ -55,8 +55,10 @@ const listenForClicks = () => {
         else if (target.classList.contains("project-item")) {
             const projectForFilter = target.innerText;
             const tasksWithProject = taskList.filter((element) => element.project == projectForFilter);
-            console.log(tasksWithProject);
             filterTasksByProject(tasksWithProject);
+        }
+        else if (target.classList.contains("all-projects")) {
+            reloadAllTasks();
         }
     })
     return;
