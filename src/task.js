@@ -16,7 +16,11 @@ function setIndex(value) {
     indexOfEdit = value;
 }
 
-export { Task , taskList , indexOfEdit , setIndex };
+function setTaskList(parsedJSON) {
+    taskList = parsedJSON;
+}
+
+export { Task , taskList , indexOfEdit , setIndex , setTaskList };
 
 
 

@@ -448,6 +448,7 @@ export function reloadAllTasks() {
 
     taskList.forEach((element) => {
         if (element) {
+            console.log(element)
             addSubmittedTask(element.title, element.project, element.description, element.date, element.priority)
         }
         
@@ -463,6 +464,7 @@ export function reloadAllProjects() {
 
     projectList.forEach((element) => {
         if (element) {
+            console.log(element);
             addSubmittedProject(element.title);
         }
     })

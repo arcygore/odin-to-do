@@ -6,7 +6,11 @@ class Project {
     }
 }
 
-export { Project , projectList };
+function setProjectList(parsedJSON) {
+    projectList = parsedJSON;
+}
+
+export { Project , projectList , setProjectList };
 
 
 
