@@ -98,7 +98,10 @@ const listenForClicks = () => {
         const {target} = e;
         if (target.classList.contains("task-title")) {
             const completedTaskCard = target.parentElement.parentElement;
-            completedTaskCard.classList.add("completed-task");
+            if (completedTaskCard.classList.contains("completed-task")) {
+                completedTaskCard.classList.remove("completed-task");
+            }
+            else completedTaskCard.classList.add("completed-task");
         }
     })
     return;

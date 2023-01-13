@@ -23,6 +23,8 @@ export const createProjectForm = () => {
     const newProjectName = document.createElement("input");
     const newProjectSubmit = document.createElement("button");
 
+    addProjectForm.classList.add("add-project-form");
+
     newProjectLabel.setAttribute('for', 'project-name');
     newProjectLabel.innerText = "Project Name";
     newProjectName.setAttribute('input','text');
@@ -42,14 +44,19 @@ export const createProjectForm = () => {
 export const createTaskForm = () => {
     const modalContainer = document.querySelector(".modal-container");
     const addTaskForm = document.createElement("div");
+    const newTaskNameContainer = document.createElement("div");
     const newTaskNameLabel = document.createElement("label");
     const newTaskNameInput = document.createElement("input");
+    const newTaskProjectContainer = document.createElement("div");
     const newTaskProjectLabel = document.createElement("label");
     const newTaskProjectInput = document.createElement("select");
+    const newTaskDescriptionContainer = document.createElement("div");
     const newTaskDescriptionLabel = document.createElement("label");
     const newTaskDescriptionInput = document.createElement("input");
+    const newTaskDateContainer = document.createElement("div");
     const newTaskDateLabel = document.createElement("label");
     const newTaskDateInput = document.createElement("input");
+    const newTaskPriorityContainer = document.createElement("div");
     const newTaskPriorityLabel = document.createElement("label");
     const newTaskPriorityInput = document.createElement("select");
     const newTaskSubmit = document.createElement("button");
@@ -101,17 +108,24 @@ export const createTaskForm = () => {
     newTaskSubmit.setAttribute('type','submit');
     newTaskSubmit.classList.add("task-submit"); 
 
-    addTaskForm.appendChild(newTaskNameLabel);
-    addTaskForm.appendChild(newTaskNameInput);
-    addTaskForm.appendChild(newTaskProjectLabel);
-    addTaskForm.appendChild(newTaskProjectInput);
-    addTaskForm.appendChild(newTaskDescriptionLabel);
-    addTaskForm.appendChild(newTaskDescriptionInput);
-    addTaskForm.appendChild(newTaskDateLabel);
-    addTaskForm.appendChild(newTaskDateInput);
-    addTaskForm.appendChild(newTaskPriorityLabel);
-    addTaskForm.appendChild(newTaskPriorityInput);
+    newTaskNameContainer.appendChild(newTaskNameLabel);
+    newTaskNameContainer.appendChild(newTaskNameInput);
+    newTaskProjectContainer.appendChild(newTaskProjectLabel);
+    newTaskProjectContainer.appendChild(newTaskProjectInput);
+    newTaskDescriptionContainer.appendChild(newTaskDescriptionLabel);
+    newTaskDescriptionContainer.appendChild(newTaskDescriptionInput);
+    newTaskDateContainer.appendChild(newTaskDateLabel);
+    newTaskDateContainer.appendChild(newTaskDateInput);
+    newTaskPriorityContainer.appendChild(newTaskPriorityLabel);
+    newTaskPriorityContainer.appendChild(newTaskPriorityInput);
+
+    addTaskForm.appendChild(newTaskNameContainer);
+    addTaskForm.appendChild(newTaskProjectContainer);
+    addTaskForm.appendChild(newTaskDescriptionContainer);
+    addTaskForm.appendChild(newTaskDateContainer);
+    addTaskForm.appendChild(newTaskPriorityContainer);
     addTaskForm.appendChild(newTaskSubmit);
+
     modalContainer.appendChild(addTaskForm);
 }
 
@@ -121,14 +135,19 @@ export const createEditedTaskForm = (editedTaskIndex) => {
 
     const modalContainer = document.querySelector(".modal-container");
     const addTaskForm = document.createElement("div");
+    const newTaskNameContainer = document.createElement("div");
     const newTaskNameLabel = document.createElement("label");
     const newTaskNameInput = document.createElement("input");
+    const newTaskProjectContainer = document.createElement("div");
     const newTaskProjectLabel = document.createElement("label");
     const newTaskProjectInput = document.createElement("select");
+    const newTaskDescriptionContainer = document.createElement("div");
     const newTaskDescriptionLabel = document.createElement("label");
     const newTaskDescriptionInput = document.createElement("input");
+    const newTaskDateContainer = document.createElement("div");
     const newTaskDateLabel = document.createElement("label");
     const newTaskDateInput = document.createElement("input");
+    const newTaskPriorityContainer = document.createElement("div");
     const newTaskPriorityLabel = document.createElement("label");
     const newTaskPriorityInput = document.createElement("select");
     const newTaskSubmit = document.createElement("button");
@@ -187,17 +206,24 @@ export const createEditedTaskForm = (editedTaskIndex) => {
     newTaskSubmit.setAttribute('type','submit');
     newTaskSubmit.classList.add("task-edit-submit"); 
 
-    addTaskForm.appendChild(newTaskNameLabel);
-    addTaskForm.appendChild(newTaskNameInput);
-    addTaskForm.appendChild(newTaskProjectLabel);
-    addTaskForm.appendChild(newTaskProjectInput);
-    addTaskForm.appendChild(newTaskDescriptionLabel);
-    addTaskForm.appendChild(newTaskDescriptionInput);
-    addTaskForm.appendChild(newTaskDateLabel);
-    addTaskForm.appendChild(newTaskDateInput);
-    addTaskForm.appendChild(newTaskPriorityLabel);
-    addTaskForm.appendChild(newTaskPriorityInput);
+    newTaskNameContainer.appendChild(newTaskNameLabel);
+    newTaskNameContainer.appendChild(newTaskNameInput);
+    newTaskProjectContainer.appendChild(newTaskProjectLabel);
+    newTaskProjectContainer.appendChild(newTaskProjectInput);
+    newTaskDescriptionContainer.appendChild(newTaskDescriptionLabel);
+    newTaskDescriptionContainer.appendChild(newTaskDescriptionInput);
+    newTaskDateContainer.appendChild(newTaskDateLabel);
+    newTaskDateContainer.appendChild(newTaskDateInput);
+    newTaskPriorityContainer.appendChild(newTaskPriorityLabel);
+    newTaskPriorityContainer.appendChild(newTaskPriorityInput);
+
+    addTaskForm.appendChild(newTaskNameContainer);
+    addTaskForm.appendChild(newTaskProjectContainer);
+    addTaskForm.appendChild(newTaskDescriptionContainer);
+    addTaskForm.appendChild(newTaskDateContainer);
+    addTaskForm.appendChild(newTaskPriorityContainer);
     addTaskForm.appendChild(newTaskSubmit);
+
     modalContainer.appendChild(addTaskForm);
 }
 
